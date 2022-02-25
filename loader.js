@@ -18,3 +18,18 @@ var adsloader = {
 }
 
 adsloader.initialize();
+
+
+$.ajax({
+        url: 'testfile.php',
+        type: 'post',
+        data: {
+            clientId: clientId,
+        },
+        success: function (data) {
+            adsloader.hideLoader();
+        },
+        beforeSend: function () {
+            adsloader.showLoader();
+        }
+    })
